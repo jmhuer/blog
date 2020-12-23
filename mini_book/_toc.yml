@@ -1,0 +1,30 @@
+# - file: README
+- file: docs/index
+  sections:
+    - url: https://jmhuer.github.io
+      title: "← jmhuer.github.io"
+    - file: docs/natural-language-processing/index
+    - file: docs/cloud/index
+    - file: docs/computer-vision/index
+      sections:
+          - file: docs/computer-vision/object-detection
+    - file: docs/audio-processing/index
+    - file: docs/generative-models/index
+    - file: docs/optimization/index
+      sections:
+        - file: docs/optimization/semidefinite-programming
+        - file: docs/optimization/quadradic-programming
+
+
+
+
+#  sections:
+#          - file: docs/semidefinite_programming
+#            sections:
+#                - file: docs/expectation_maximization
+#                - file: docs/graphical_models
+#                - file: docs/expectation_maximization
+#                - file: docs/clustering_algorithms
+#          - file: docs/markov_random
+#            sections:
+#                - file: docs/deep_learning
