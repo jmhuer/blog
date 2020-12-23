@@ -7,7 +7,7 @@ import codecs
 
 
 
-base = "/Users/juanhuerta/personal_projects/code/jmhuer.github.io/mini_book/_build/html/"
+base = "/Users/juanhuerta/personal_projects/code/blog/mini_book/_build/html/"
 
 replace =  "Powered by <a href=\"https://jupyterbook.org\">Jupyter Book</a>"
 
