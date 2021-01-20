@@ -9,7 +9,7 @@ kernelspec:
   name: python3
 ---
 
-# Optimization
+# Class Notes
 
 ## Topics
 

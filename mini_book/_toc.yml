@@ -7,8 +7,12 @@
     - file: docs/cloud/index
     - file: docs/computer-vision/index
       sections:
-          - file: docs/computer-vision/object-detection
+          - file: docs/computer-vision/definitions
+          - file: docs/computer-vision/datasets
     - file: docs/audio-processing/index
+      sections:
+          - file: docs/computer-vision/definitions
+          - file: docs/computer-vision/datasets
     - file: docs/generative-models/index
     - file: docs/optimization/index
       sections:
