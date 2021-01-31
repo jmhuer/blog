@@ -10,7 +10,8 @@ kernelspec:
 ---
 
 
-# Frank Wolfe vs ProjGD
+# Deep learning
+
  <sub> [Computer Vision](https://github.com/jmhuer)</sub>
 
  **In this blog post we will compare Frank Wolfe vs ProjGD to solve a contrained optimization problem**

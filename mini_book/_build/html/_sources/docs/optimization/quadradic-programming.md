@@ -9,7 +9,7 @@ kernelspec:
   name: python3
 ---
 
-# Comparing Decent Algorithms for Lasso Regression
+# Reinforcement Learning
 
 ## Overview
 

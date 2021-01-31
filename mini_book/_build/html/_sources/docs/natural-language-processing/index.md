@@ -1,18 +1,7 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
-
-(about_py)=
-
 # Natural Language Processing
+
 ## Topics
 
--   [Semidefininte Programming](http://scikit-learn.org/stable/)
--   [Clustering Algorithms](http://www.astropy.org/)
+-   [Toolbox](http://scikit-learn.org/stable/) An assortment of tools & example used to develop computer vision systems
+
+-   [Datasets](http://www.astropy.org/) A table of useful datasets used to train/test computer vision systems

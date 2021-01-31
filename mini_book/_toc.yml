@@ -4,22 +4,25 @@
     - url: https://jmhuer.github.io
       title: "← jmhuer.github.io"
     - file: docs/natural-language-processing/index
+      sections:
+          - file: docs/natural-language-processing/definitions
+          - file: docs/natural-language-processing/datasets
     - file: docs/cloud/index
+      sections:
+          - file: docs/cloud/definitions
     - file: docs/computer-vision/index
       sections:
           - file: docs/computer-vision/definitions
           - file: docs/computer-vision/datasets
     - file: docs/audio-processing/index
       sections:
-          - file: docs/computer-vision/definitions
-          - file: docs/computer-vision/datasets
-    - file: docs/generative-models/index
+          - file: docs/audio-processing/definitions
+          - file: docs/audio-processing/datasets
     - file: docs/optimization/index
       sections:
-        - file: docs/optimization/semidefinite-programming
-        - file: docs/optimization/quadradic-programming
-
-
+          - file: docs/optimization/definitions
+          - file: docs/optimization/datasets
+    - file: docs/class-notes
 
 
 #  sections:

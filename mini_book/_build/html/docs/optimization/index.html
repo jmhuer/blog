@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Class Notes &#8212; Juan</title>
+    <title>Optimization &#8212; Juan</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -45,8 +45,6 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -56,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Frank Wolfe vs ProjGD" href="semidefinite-programming.html" />
-    <link rel="prev" title="Generative Models" href="../generative-models/index.html" />
+    <link rel="next" title="Toolbox" href="definitions.html" />
+    <link rel="prev" title="Datasets" href="../audio-processing/datasets.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -94,7 +92,7 @@
  <li class="toctree-l1">
   <a class="reference external" href="https://jmhuer.github.io">
    ← jmhuer.github.io
-   <i class="fas fa-external-link-alt">
+    
    </i>
   </a>
  </li>
@@ -115,30 +113,30 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../audio-processing/index.html">
-   Audio Processing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../generative-models/index.html">
-   Generative Models
+   Audio Intelligence
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Class Notes
+   Optimization
   </a>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="semidefinite-programming.html">
-     Frank Wolfe vs ProjGD
+    <a class="reference internal" href="definitions.html">
+     Toolbox
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="quadradic-programming.html">
-     Comparing Decent Algorithms for Lasso Regression
+    <a class="reference internal" href="datasets.html">
+     Datasets
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../class-notes.html">
+   Class Notes
+  </a>
  </li>
 </ul>
 
@@ -180,10 +178,7 @@
     
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/docs/optimization/index.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/docs/optimization/index.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -204,23 +199,6 @@
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/mini-book/docs/optimization/index.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
     </div>
 
@@ -248,13 +226,13 @@
         
               <div>
                 
-  <div class="section" id="class-notes">
-<h1>Class Notes<a class="headerlink" href="#class-notes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="optimization">
+<h1>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="topics">
 <h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://scikit-learn.org/stable/">Semidefininte Programming</a></p></li>
-<li><p><a class="reference external" href="http://www.astropy.org/">Clustering Algorithms</a></p></li>
+<li><p><a class="reference external" href="http://scikit-learn.org/stable/">Toolbox</a> An assortment of tools &amp; example used to develop computer vision systems</p></li>
+<li><p><a class="reference external" href="http://www.astropy.org/">Datasets</a> A table of useful datasets used to train/test computer vision systems</p></li>
 </ul>
 <div class="toctree-wrapper compound">
 </div>
@@ -289,8 +267,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../generative-models/index.html" title="previous page">Generative Models</a>
-    <a class='right-next' id="next-link" href="semidefinite-programming.html" title="next page">Frank Wolfe vs ProjGD</a>
+    <a class='left-prev' id="prev-link" href="../audio-processing/datasets.html" title="previous page">Datasets</a>
+    <a class='right-next' id="next-link" href="definitions.html" title="next page">Toolbox</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
