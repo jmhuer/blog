@@ -1,7 +1,7 @@
 
 import os
 
-os.system("python scripts/remove_jupyter.py")
+os.system("python scripts/clean_html.py")
 i = "\"" + input("commit messege?: ") + "\""
 os.system('git add mini_book')
 c = 'git commit -m ' + i

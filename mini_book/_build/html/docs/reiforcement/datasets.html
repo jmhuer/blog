@@ -54,8 +54,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Reiforcement Learning" href="../reiforcement/index.html" />
-    <link rel="prev" title="Toolbox" href="definitions.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -88,7 +86,7 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
+  <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="https://jmhuer.github.io">
    ← jmhuer.github.io
@@ -96,25 +94,13 @@
    </i>
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="index.html">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../natural-language-processing/index.html">
    Natural Language Processing
   </a>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="definitions.html">
-     Toolbox
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Datasets
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../reiforcement/index.html">
+  <a class="reference internal" href="index.html">
    Reiforcement Learning
   </a>
  </li>
@@ -180,7 +166,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/natural-language-processing/datasets.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/reiforcement/datasets.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -211,9 +197,26 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-classification">
+   Image classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nlp">
    NLP
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-localization">
+   Image localization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coco">
+     COCO
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -229,6 +232,75 @@
   <div class="section" id="datasets">
 <h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
 <p>For each dataset below, click the ‘source’ link to see the dataset license and details from the creator, the ‘cite’ link for the paper for citations, and the ‘download’ link to access to dataset from <a class="reference external" href="https://registry.opendata.aws/">AWS Open Datasets</a>.</p>
+<div class="section" id="image-classification">
+<h2>Image classification<a class="headerlink" href="#image-classification" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Citation</p></th>
+<th class="head"><p>Download</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST</a></p></td>
+<td><p><a class="reference external" href="http://yann.lecun.com/exdb/publis/index.html#lecun-98">LeCun et al., 1998a</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/mnist_png.tgz">download</a></p></td>
+<td><p>Classic dataset of small (28x28) handwritten grayscale digits, developed in the 1990s for testing the most sophisticated models of the day; today, often used as a basic “hello world” for introducing deep learning. This fast.ai datasets version uses a standard PNG format instead of the special binary format of the original, so you can use the regular data pipelines in most libraries; if you want to use just a single input channel like the original, simply pick a single slice from the channels axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR10</a></p></td>
+<td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Krizhevsky, 2009</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/cifar10.tgz">download</a></p></td>
+<td><p>60000 32x32 colour images in 10 classes, with 6000 images per class (50000 training images and 10000 test images). Very widely used today for testing performance of new algorithms. This fast.ai datasets version uses a standard PNG format instead of the platform-specific binary formats of the original, so you can use the regular data pipelines in most libraries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR100</a></p></td>
+<td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Krizhevsky, 2009</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/cifar100.tgz">download</a></p></td>
+<td><p>This dataset is just like the CIFAR-10, except it has 100 classes containing 600 images each. There are 500 training images and 100 testing images per class. The 100 classes in the CIFAR-100 are grouped into 20 superclasses. Each image comes with a “fine” label (the class to which it belongs) and a “coarse” label (the superclass to which it belongs).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.vision.caltech.edu/visipedia/CUB-200-2011.html">Caltech-UCSD Birds-200-2011</a></p></td>
+<td><p><a class="reference external" href="http://vis-www.cs.umass.edu/bcnn/">Lin et al. 2015</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/CUB_200_2011.tgz">download</a></p></td>
+<td><p>An image dataset with photos of 200 bird species (mostly North American); it can also be used for localization. Number of categories: 200; Number of images: 11,788; Annotations per image: 15 Part Locations, 312 Binary Attributes, 1 Bounding Box</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.vision.caltech.edu/Image_Datasets/Caltech101/">Caltech 101</a></p></td>
+<td><p><a class="reference external" href="http://www.vision.caltech.edu/feifeili/Fei-Fei_GMBV04.pdf">L. Fei-Fei et al., 2004</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/caltech_101.tar.gz">download</a></p></td>
+<td><p>Pictures of objects belonging to 101 categories. About 40 to 800 images per category. Most categories have about 50 images. The size of each image is roughly 300 x 200 pixels. Can also be used for localization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-IIIT Pet</a></p></td>
+<td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/publications/2012/parkhi12a/parkhi12a.pdf">O. M. Parkhi et al., 2012</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet.tgz">download</a></p></td>
+<td><p>A 37 category pet dataset with roughly 200 images for each class. The images have a large variations in scale, pose and lighting. Can also be used for localization.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/data/flowers/102/">Oxford 102 Flowers</a></p></td>
+<td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/publications/papers/nilsback08.pdf">Nilsback, M-E. and Zisserman, A., 2008</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/oxford-102-flowers.tgz">download</a></p></td>
+<td><p>A 102 category dataset consisting of 102 flower categories, commonly occuring in the United Kingdom. Each class consists of 40 to 258 images. The images have large scale, pose and light variations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.vision.ee.ethz.ch/datasets_extra/food-101/">Food-101</a></p></td>
+<td><p><a class="reference external" href="https://pdfs.semanticscholar.org/8e3f/12804882b60ad5f59aad92755c5edb34860e.pdf">Bossard, Lukas et al., 2014</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/food-101.tgz">download</a></p></td>
+<td><p>101 food categories, with 101,000 images; 250 test images and 750 training images per class. The training images were not cleaned. All images were rescaled to have a maximum side length of 512 pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://ai.stanford.edu/~jkrause/cars/car_dataset.html">Stanford cars</a></p></td>
+<td><p><a class="reference external" href="https://ai.stanford.edu/~jkrause/papers/3drr13.pdf">Jonathan Krause et al., 2013</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/stanford-cars.tgz">download</a></p></td>
+<td><p>16,185 images of 196 classes of cars. The data is split into 8,144 training images and 8,041 testing images, where each class has been split roughly in a 50-50 split. Classes are typically at the level of Make, Model, Year.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/fastai/imagenette">Imagenette</a></p></td>
+<td><p>Based on <a class="reference external" href="http://www.image-net.org/papers/imagenet_cvpr09.bib">Deng et al., 2009</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette.tgz">Full size</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette-320.tgz">320 px</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette-160.tgz">160 px</a></p></td>
+<td><p>A subset of 10 easily classified classes from Imagenet: tench, English springer, cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/fastai/imagenette">Imagewoof</a></p></td>
+<td><p>Based on <a class="reference external" href="http://www.image-net.org/papers/imagenet_cvpr09.bib">Deng et al., 2009</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz">Full size</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof-320.tgz">320 px</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof-160.tgz">160 px</a></p></td>
+<td><p>A subset of 10 harder to classify classes from Imagenet (all dog breeds): Australian terrier, Border terrier, Samoyed, beagle, Shih-Tzu, English foxhound, Rhodesian ridgeback, dingo, golden retriever, Old English sheepdog</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="nlp">
 <h2>NLP<a class="headerlink" href="#nlp" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
@@ -303,6 +375,46 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="image-localization">
+<h2>Image localization<a class="headerlink" href="#image-localization" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Citation</p></th>
+<th class="head"><p>Download</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/">Camvid: Motion-based Segmentation and Recognition Dataset</a></p></td>
+<td><p><a class="reference external" href="https://pdfs.semanticscholar.org/08f6/24f7ee5c3b05b1b604357fb1532241e208db.pdf">Brostow et al., 2008</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/camvid.tgz">download</a></p></td>
+<td><p>Segmentation dataset with per-pixel semantic segmentation of over 700 images, each inspected and confirmed by a second person for accuracy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL Visual Object Classes (VOC)</a></p></td>
+<td><p><a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf">Everingham, M et al., 2010</a></p></td>
+<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal-voc.tgz">download</a></p></td>
+<td><p>Standardised image data sets for object class recognition - both 2007 and 2012 versions are provided here. The 2012 version has 20 classes. The train/val data has 11,530 images containing 27,450 ROI annotated objects and 6,929 segmentations. There are also simplifed version for the annotated objects of the <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal_2007.tgz">2007 version</a> and the <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal_2012.tgz">2012 version</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="coco">
+<h3>COCO<a class="headerlink" href="#coco" title="Permalink to this headline">¶</a></h3>
+<p>Probably the most widely used dataset today for object localization is <a class="reference external" href="https://arxiv.org/abs/1405.0312">COCO: Common Objects in Context</a>. Provided here are all the files from the 2017 version, along with an additional <em>subset</em> dataset created by fast.ai. Details of each COCO dataset is available from the <a class="reference external" href="http://cocodataset.org/#download">COCO dataset page</a>. The fast.ai subset contains all images that contain one of five selected categories, restricting objects to just those five categories; the categories are: chair couch tv remote book vase.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/coco_sample.tgz">fast.ai subset</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/train2017.zip">Train images</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/val2017.zip">Val images</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/test2017.zip">Test images</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/unlabeled2017.zip">Unlabeled images</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/image_info_test2017.zip">Testing Image info</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/image_info_unlabeled2017.zip">Unlabeled Image info</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/annotations_trainval2017.zip">Train/Val annotations</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/stuff_annotations_trainval2017.zip">Stuff Train/Val annotations</a></p></li>
+<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/panoptic_annotations_trainval2017.zip">Panoptic Train/Val annotations</a></p></li>
+</ul>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -318,7 +430,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/natural-language-processing"
+            path: "./docs/reiforcement"
         },
         predefinedOutput: true
     }
@@ -333,8 +445,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="definitions.html" title="previous page">Toolbox</a>
-    <a class='right-next' id="next-link" href="../reiforcement/index.html" title="next page">Reiforcement Learning</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -7,9 +7,9 @@
       sections:
           - file: docs/natural-language-processing/definitions
           - file: docs/natural-language-processing/datasets
-    - file: docs/cloud/index
+    - file: docs/reiforcement/index
       sections:
-          - file: docs/cloud/definitions
+          - file: docs/reiforcement/definitions
     - file: docs/computer-vision/index
       sections:
           - file: docs/computer-vision/definitions

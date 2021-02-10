@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Optimization &#8212; Juan</title>
+    <title>Toolbox &#8212; Juan</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,8 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Toolbox" href="definitions.html" />
-    <link rel="prev" title="Datasets" href="../audio-processing/datasets.html" />
+    <link rel="next" title="Computer Vision" href="../computer-vision/index.html" />
+    <link rel="prev" title="Reiforcement Learning" href="index.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -101,10 +101,17 @@
    Natural Language Processing
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reiforcement/index.html">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="index.html">
    Reiforcement Learning
   </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Toolbox
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../computer-vision/index.html">
@@ -116,22 +123,10 @@
    Audio Intelligence
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optimization/index.html">
    Optimization
   </a>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="definitions.html">
-     Toolbox
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="datasets.html">
-     Datasets
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../class-notes.html">
@@ -180,7 +175,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/optimization/index.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/reiforcement/definitions.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -211,8 +206,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#topics">
-   Topics
+  <a class="reference internal nav-link" href="#books-references">
+   Books &amp; References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-tme-inference-on-aws">
+   Real tme inference on AWS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utils">
+   Utils
   </a>
  </li>
 </ul>
@@ -226,16 +231,69 @@
         
               <div>
                 
-  <div class="section" id="optimization">
-<h1>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="topics">
-<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="toolbox">
+<h1>Toolbox<a class="headerlink" href="#toolbox" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="books-references">
+<h2>Books &amp; References<a class="headerlink" href="#books-references" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://scikit-learn.org/stable/">Toolbox</a> An assortment of tools &amp; example used to develop computer vision systems</p></li>
-<li><p><a class="reference external" href="http://www.astropy.org/">Datasets</a> A table of useful datasets used to train/test computer vision systems</p></li>
+<li><p><a class="reference external" href="https://github.com/">The Elements of Statistical Learning</a>. This is my go-to refernce for deep learning questions</p></li>
+<li><p><a class="reference external" href="https://github.com/">Deep Learning</a>. This is my go-to refernce for deep learning questions</p></li>
 </ul>
-<div class="toctree-wrapper compound">
 </div>
+<hr class="docutils" />
+<div class="section" id="real-tme-inference-on-aws">
+<h2>Real tme inference on AWS<a class="headerlink" href="#real-tme-inference-on-aws" title="Permalink to this headline">¶</a></h2>
+<p><strong>Loading data</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<p><strong>Synthetic data</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<p><strong>Visualizing CNNs</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<p><strong>Logging</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">various-loggers</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<p><strong>Full examples</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">YOLO</a>  Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+<li><p><a class="reference external" href="https://github.com/">RetinaNet</a>  Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+<li><p><a class="reference external" href="https://github.com/">FCN Autoencoder</a>  Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<p><strong>Collecting image data</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br></p></li>
+</ul>
+<p><strong>Background subtraction</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br></p></li>
+</ul>
+<p><strong>Finding contours</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br></p></li>
+</ul>
+<p><strong>My drawing utils</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<p><strong>Dominant color analysis</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">dataloaders&amp;augmentations</a> Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles</p></li>
+</ul>
+<br>
+<br>
 </div>
 </div>
 
@@ -252,7 +310,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/optimization"
+            path: "./docs/reiforcement"
         },
         predefinedOutput: true
     }
@@ -267,8 +325,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../audio-processing/datasets.html" title="previous page">Datasets</a>
-    <a class='right-next' id="next-link" href="definitions.html" title="next page">Toolbox</a>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Reiforcement Learning</a>
+    <a class='right-next' id="next-link" href="../computer-vision/index.html" title="next page">Computer Vision</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

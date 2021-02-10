@@ -34,22 +34,41 @@
 
 - [FCN Autoencoder](https://github.com/)  Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
 
+----
+
+## Machine - Statistical Learning
+**Dominant color analysis**
+
+-  [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+
+**Background subtraction & finding contours**
+
+- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br>
+
+----
+
+## Cloud
+**Training PyTorch Model on SageMaker**
+
+-  [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+
+**Deploy PyTorch Model on SageMaker**
+
+- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br>
+
+**Deploy PyTorch Model locally using TourchServe**
+
+- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+<br>
+
 
 ----
 
 ## Utils
 
-**Collecting image data**
-
-- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
-<br>
-
-**Background subtraction**
-
-- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
-<br>
-
-**Finding contours**
+**Performance metrics for computer vision**
 
 - [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
 <br>
@@ -58,9 +77,9 @@
 
 -  [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
 
-**Dominant color analysis**
+**Collecting image data**
 
--  [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
+- [dataloaders&augmentations](https://github.com/) Project hosted on git useful to load and apply transforms to image data for various difrrent annotation styles
 
 <br>
 <br>
