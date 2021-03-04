@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Tools &#8212; Juan</title>
+    <title>Model library &#8212; Juan</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -54,6 +54,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Audio Intelligence" href="../audio-processing/index.html" />
+    <link rel="prev" title="Datasets" href="datasets.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -86,7 +88,7 @@
 </form>
 
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+  <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="https://jmhuer.github.io">
    ← jmhuer.github.io
@@ -104,10 +106,27 @@
    Reiforcement Learning
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="index.html">
    Computer Vision
   </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="definitions.html">
+     Toolbox
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="datasets.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Model library
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../audio-processing/index.html">
@@ -197,26 +216,19 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-classification">
-   Image classification
+  <a class="reference internal nav-link" href="#classification-models">
+   Classification models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#nlp">
-   NLP
+  <a class="reference internal nav-link" href="#segmentation-models">
+   Segmentation models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-localization">
-   Image localization
+  <a class="reference internal nav-link" href="#detection-models">
+   Detection models
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#coco">
-     COCO
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -229,194 +241,1386 @@
         
               <div>
                 
-  <div class="section" id="tools">
-<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
-<p>In machine learning and deep learning we can’t do anything without data. So the people that create datasets for us to train our models are the (often under-appreciated) heros. Some of the most useful and important datasets are those that become important “academic baselines”; that is, datasets that are widely studied by researchers and used to compare algorithmic changes. Some of these become household names (at least, among households that train models!), such as <em>MNIST</em>, <em>CIFAR 10</em>, and <em>Imagenet</em>.</p>
-<p>At fast.ai we (and our students) owe a debt of gratitude to those kind folks who have made datasets available for the research community. We’ve teamed up with AWS to try to give back a little: we’ve made some of the most important of these datasets available in a single place, using standard formats, on reliable and fast infrastructure (see below for a full list and links). If you use any of these datasets in your research, please give back by citing the original paper (we’ve provided the appropriate citation link below for each), and if you use them as part of a commercial or educational project, consider adding a note of thanks and a link to the dataset.</p>
-<p>We use these datasets in our teaching, because they provide great examples of the kind of data that students are likely to encounter, and the academic literature has many examples of model results using these datasets which students can compare their work to. In addition, we also use datasets from <a class="reference external" href="http://www.kaggle.com">Kaggle Competitions</a>, because the public leaderboards on Kaggle allow students to test their models against the best in the world (the Kaggle datasets are not listed here).</p>
-<p>For each dataset below, click the ‘source’ link to see the dataset license and details from the creator, the ‘cite’ link for the paper for citations, and the ‘download’ link to access to dataset from <a class="reference external" href="https://registry.opendata.aws/">AWS Open Datasets</a>.</p>
-<div class="section" id="image-classification">
-<h2><a class="reference external" href="https://registry.opendata.aws/fast-ai-imageclas/">Image classification</a><a class="headerlink" href="#image-classification" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="model-library">
+<h1>Model library<a class="headerlink" href="#model-library" title="Permalink to this headline">¶</a></h1>
+<p>Here is list of popular classification, segmentation and detection models with corresponding evaluation metrics from papers. Some of the models are also available for inference using <code class="docutils literal notranslate"><span class="pre">tensorflow.js</span></code> (look for a link in <code class="docutils literal notranslate"><span class="pre">DEMO</span></code> column).
+This survey is a fork from this <a class="reference external" href="https://github.com/nerox8664/awesome-computer-vision-models">repo</a></p>
+<div class="section" id="classification-models">
+<h2>Classification models<a class="headerlink" href="#classification-models" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Source</p></th>
-<th class="head"><p>Citation</p></th>
-<th class="head"><p>Download</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Model</p></th>
+<th class="text-align:center head"><p>Number of parameters</p></th>
+<th class="text-align:center head"><p>FLOPS</p></th>
+<th class="text-align:center head"><p>Top-1 Error</p></th>
+<th class="text-align:center head"><p>Top-5 Error</p></th>
+<th class="text-align:center head"><p>Year</p></th>
+<th class="text-align:center head"><p>DEMO</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://yann.lecun.com/exdb/mnist/">MNIST</a></p></td>
-<td><p><a class="reference external" href="http://yann.lecun.com/exdb/publis/index.html#lecun-98">LeCun et al., 1998a</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/mnist_png.tgz">download</a></p></td>
-<td><p>Classic dataset of small (28x28) handwritten grayscale digits, developed in the 1990s for testing the most sophisticated models of the day; today, often used as a basic “hello world” for introducing deep learning. This fast.ai datasets version uses a standard PNG format instead of the special binary format of the original, so you can use the regular data pipelines in most libraries; if you want to use just a single input channel like the original, simply pick a single slice from the channels axis.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>AlexNet (<a class="reference external" href="https://arxiv.org/abs/1404.5997">‘One weird trick for parallelizing convolutional neural networks’</a>)</p></td>
+<td class="text-align:center"><p>62.3M</p></td>
+<td class="text-align:center"><p>1,132.33M</p></td>
+<td class="text-align:center"><p>40.96</p></td>
+<td class="text-align:center"><p>18.24</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR10</a></p></td>
-<td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Krizhevsky, 2009</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/cifar10.tgz">download</a></p></td>
-<td><p>60000 32x32 colour images in 10 classes, with 6000 images per class (50000 training images and 10000 test images). Very widely used today for testing performance of new algorithms. This fast.ai datasets version uses a standard PNG format instead of the platform-specific binary formats of the original, so you can use the regular data pipelines in most libraries.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>VGG-16 (<a class="reference external" href="https://arxiv.org/abs/1409.1556">‘Very Deep Convolutional Networks for Large-Scale Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>138.3M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>26.78</p></td>
+<td class="text-align:center"><p>8.69</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>X</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR100</a></p></td>
-<td><p><a class="reference external" href="https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf">Krizhevsky, 2009</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/cifar100.tgz">download</a></p></td>
-<td><p>This dataset is just like the CIFAR-10, except it has 100 classes containing 600 images each. There are 500 training images and 100 testing images per class. The 100 classes in the CIFAR-100 are grouped into 20 superclasses. Each image comes with a “fine” label (the class to which it belongs) and a “coarse” label (the superclass to which it belongs).</p></td>
+<tr class="row-even"><td class="text-align:center"><p>ResNet-10 (<a class="reference external" href="https://arxiv.org/abs/1512.03385">‘Deep Residual Learning for Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>5.5M</p></td>
+<td class="text-align:center"><p>894.04M</p></td>
+<td class="text-align:center"><p>34.69</p></td>
+<td class="text-align:center"><p>14.36</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnet-10">Try live</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://www.vision.caltech.edu/visipedia/CUB-200-2011.html">Caltech-UCSD Birds-200-2011</a></p></td>
-<td><p><a class="reference external" href="http://vis-www.cs.umass.edu/bcnn/">Lin et al. 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/CUB_200_2011.tgz">download</a></p></td>
-<td><p>An image dataset with photos of 200 bird species (mostly North American); it can also be used for localization. Number of categories: 200; Number of images: 11,788; Annotations per image: 15 Part Locations, 312 Binary Attributes, 1 Bounding Box</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>ResNet-18 (<a class="reference external" href="https://arxiv.org/abs/1512.03385">‘Deep Residual Learning for Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>11.7M</p></td>
+<td class="text-align:center"><p>1,820.41M</p></td>
+<td class="text-align:center"><p>28.53</p></td>
+<td class="text-align:center"><p>9.82</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnet-18">Try live</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://www.vision.caltech.edu/Image_Datasets/Caltech101/">Caltech 101</a></p></td>
-<td><p><a class="reference external" href="http://www.vision.caltech.edu/feifeili/Fei-Fei_GMBV04.pdf">L. Fei-Fei et al., 2004</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/caltech_101.tar.gz">download</a></p></td>
-<td><p>Pictures of objects belonging to 101 categories. About 40 to 800 images per category. Most categories have about 50 images. The size of each image is roughly 300 x 200 pixels. Can also be used for localization.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>ResNet-34 (<a class="reference external" href="https://arxiv.org/abs/1512.03385">‘Deep Residual Learning for Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>21.8M</p></td>
+<td class="text-align:center"><p>3,672.68M</p></td>
+<td class="text-align:center"><p>24.84</p></td>
+<td class="text-align:center"><p>7.80</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnet-34">Try live</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-IIIT Pet</a></p></td>
-<td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/publications/2012/parkhi12a/parkhi12a.pdf">O. M. Parkhi et al., 2012</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet.tgz">download</a></p></td>
-<td><p>A 37 category pet dataset with roughly 200 images for each class. The images have a large variations in scale, pose and lighting. Can also be used for localization.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>ResNet-50 (<a class="reference external" href="https://arxiv.org/abs/1512.03385">‘Deep Residual Learning for Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>25.5M</p></td>
+<td class="text-align:center"><p>3,877.95M</p></td>
+<td class="text-align:center"><p>22.28</p></td>
+<td class="text-align:center"><p>6.33</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnet-50">Try live</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/data/flowers/102/">Oxford 102 Flowers</a></p></td>
-<td><p><a class="reference external" href="http://www.robots.ox.ac.uk/~vgg/publications/papers/nilsback08.pdf">Nilsback, M-E. and Zisserman, A., 2008</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/oxford-102-flowers.tgz">download</a></p></td>
-<td><p>A 102 category dataset consisting of 102 flower categories, commonly occuring in the United Kingdom. Each class consists of 40 to 258 images. The images have large scale, pose and light variations.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>InceptionV3 (<a class="reference external" href="https://arxiv.org/abs/1512.00567">‘Rethinking the Inception Architecture for Computer Vision’</a>)</p></td>
+<td class="text-align:center"><p>23.8M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>21.2</p></td>
+<td class="text-align:center"><p>5.6</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>X</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.vision.ee.ethz.ch/datasets_extra/food-101/">Food-101</a></p></td>
-<td><p><a class="reference external" href="https://pdfs.semanticscholar.org/8e3f/12804882b60ad5f59aad92755c5edb34860e.pdf">Bossard, Lukas et al., 2014</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/food-101.tgz">download</a></p></td>
-<td><p>101 food categories, with 101,000 images; 250 test images and 750 training images per class. The training images were not cleaned. All images were rescaled to have a maximum side length of 512 pixels.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>PreResNet-18 (<a class="reference external" href="https://arxiv.org/abs/1603.05027">‘Identity Mappings in Deep Residual Networks’</a>)</p></td>
+<td class="text-align:center"><p>11.7M</p></td>
+<td class="text-align:center"><p>1,820.56M</p></td>
+<td class="text-align:center"><p>28.43</p></td>
+<td class="text-align:center"><p>9.72</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/preresnet-18">Try live</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://ai.stanford.edu/~jkrause/cars/car_dataset.html">Stanford cars</a></p></td>
-<td><p><a class="reference external" href="https://ai.stanford.edu/~jkrause/papers/3drr13.pdf">Jonathan Krause et al., 2013</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/stanford-cars.tgz">download</a></p></td>
-<td><p>16,185 images of 196 classes of cars. The data is split into 8,144 training images and 8,041 testing images, where each class has been split roughly in a 50-50 split. Classes are typically at the level of Make, Model, Year.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>PreResNet-34 (<a class="reference external" href="https://arxiv.org/abs/1603.05027">‘Identity Mappings in Deep Residual Networks’</a>)</p></td>
+<td class="text-align:center"><p>21.8M</p></td>
+<td class="text-align:center"><p>3,672.83M</p></td>
+<td class="text-align:center"><p>24.89</p></td>
+<td class="text-align:center"><p>7.74</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/preresnet-34">Try live</a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/fastai/imagenette">Imagenette</a></p></td>
-<td><p>Based on <a class="reference external" href="http://www.image-net.org/papers/imagenet_cvpr09.bib">Deng et al., 2009</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette.tgz">Full size</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette-320.tgz">320 px</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagenette-160.tgz">160 px</a></p></td>
-<td><p>A subset of 10 easily classified classes from Imagenet: tench, English springer, cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>PreResNet-50 (<a class="reference external" href="https://arxiv.org/abs/1603.05027">‘Identity Mappings in Deep Residual Networks’</a>)</p></td>
+<td class="text-align:center"><p>25.6M</p></td>
+<td class="text-align:center"><p>3,875.44M</p></td>
+<td class="text-align:center"><p>22.40</p></td>
+<td class="text-align:center"><p>6.47</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/preresnet-50">Try live</a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/fastai/imagenette">Imagewoof</a></p></td>
-<td><p>Based on <a class="reference external" href="http://www.image-net.org/papers/imagenet_cvpr09.bib">Deng et al., 2009</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof.tgz">Full size</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof-320.tgz">320 px</a> <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imageclas/imagewoof-160.tgz">160 px</a></p></td>
-<td><p>A subset of 10 harder to classify classes from Imagenet (all dog breeds): Australian terrier, Border terrier, Samoyed, beagle, Shih-Tzu, English foxhound, Rhodesian ridgeback, dingo, golden retriever, Old English sheepdog</p></td>
+<tr class="row-even"><td class="text-align:center"><p>DenseNet-121 (<a class="reference external" href="https://arxiv.org/abs/1608.06993">‘Densely Connected Convolutional Networks’</a>)</p></td>
+<td class="text-align:center"><p>8.0M</p></td>
+<td class="text-align:center"><p>2,872.13M</p></td>
+<td class="text-align:center"><p>23.48</p></td>
+<td class="text-align:center"><p>7.04</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/densenet-121">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DenseNet-161 (<a class="reference external" href="https://arxiv.org/abs/1608.06993">‘Densely Connected Convolutional Networks’</a>)</p></td>
+<td class="text-align:center"><p>28.7M</p></td>
+<td class="text-align:center"><p>7,793.16M</p></td>
+<td class="text-align:center"><p>22.86</p></td>
+<td class="text-align:center"><p>6.44</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PyramidNet-101 (<a class="reference external" href="https://arxiv.org/abs/1610.02915">‘Deep Pyramidal Residual Networks’</a>)</p></td>
+<td class="text-align:center"><p>42.5M</p></td>
+<td class="text-align:center"><p>8,743.54M</p></td>
+<td class="text-align:center"><p>21.98</p></td>
+<td class="text-align:center"><p>6.20</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResNeXt-14(32x4d) (<a class="reference external" href="http://arxiv.org/abs/1611.05431">‘Aggregated Residual Transformations for Deep Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>9.5M</p></td>
+<td class="text-align:center"><p>1,603.46M</p></td>
+<td class="text-align:center"><p>30.32</p></td>
+<td class="text-align:center"><p>11.46</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnext14_32x4d">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ResNeXt-26(32x4d) (<a class="reference external" href="http://arxiv.org/abs/1611.05431">‘Aggregated Residual Transformations for Deep Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>15.4M</p></td>
+<td class="text-align:center"><p>2,488.07M</p></td>
+<td class="text-align:center"><p>24.14</p></td>
+<td class="text-align:center"><p>7.46</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/resnext26_32x4d">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>WRN-50-2 (<a class="reference external" href="https://arxiv.org/abs/1605.07146">‘Wide Residual Networks’</a>)</p></td>
+<td class="text-align:center"><p>68.9M</p></td>
+<td class="text-align:center"><p>11,405.42M</p></td>
+<td class="text-align:center"><p>22.53</p></td>
+<td class="text-align:center"><p>6.41</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Xception (<a class="reference external" href="https://arxiv.org/abs/1610.02357">‘Xception: Deep Learning with Depthwise Separable Convolutions’</a>)</p></td>
+<td class="text-align:center"><p>22,855,952</p></td>
+<td class="text-align:center"><p>8,403.63M</p></td>
+<td class="text-align:center"><p>20.97</p></td>
+<td class="text-align:center"><p>5.49</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>InceptionV4 (<a class="reference external" href="https://arxiv.org/abs/1602.07261">‘Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning’</a>)</p></td>
+<td class="text-align:center"><p>42,679,816</p></td>
+<td class="text-align:center"><p>12,304.93M</p></td>
+<td class="text-align:center"><p>20.64</p></td>
+<td class="text-align:center"><p>5.29</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>InceptionResNetV2 (<a class="reference external" href="https://arxiv.org/abs/1602.07261">‘Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning’</a>)</p></td>
+<td class="text-align:center"><p>55,843,464</p></td>
+<td class="text-align:center"><p>13,188.64M</p></td>
+<td class="text-align:center"><p>19.93</p></td>
+<td class="text-align:center"><p>4.90</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PolyNet (<a class="reference external" href="https://arxiv.org/abs/1611.05725">‘PolyNet: A Pursuit of Structural Diversity in Very Deep Networks’</a>)</p></td>
+<td class="text-align:center"><p>95,366,600</p></td>
+<td class="text-align:center"><p>34,821.34M</p></td>
+<td class="text-align:center"><p>19.10</p></td>
+<td class="text-align:center"><p>4.52</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DarkNet Ref (<a class="reference external" href="https://github.com/pjreddie/darknet">‘Darknet: Open source neural networks in C’</a>)</p></td>
+<td class="text-align:center"><p>7,319,416</p></td>
+<td class="text-align:center"><p>367.59M</p></td>
+<td class="text-align:center"><p>38.58</p></td>
+<td class="text-align:center"><p>17.18</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/darknet_ref">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DarkNet Tiny (<a class="reference external" href="https://github.com/pjreddie/darknet">‘Darknet: Open source neural networks in C’</a>)</p></td>
+<td class="text-align:center"><p>1,042,104</p></td>
+<td class="text-align:center"><p>500.85M</p></td>
+<td class="text-align:center"><p>40.74</p></td>
+<td class="text-align:center"><p>17.84</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/darknet_tiny">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DarkNet 53 (<a class="reference external" href="https://github.com/pjreddie/darknet">‘Darknet: Open source neural networks in C’</a>)</p></td>
+<td class="text-align:center"><p>41,609,928</p></td>
+<td class="text-align:center"><p>7,133.86M</p></td>
+<td class="text-align:center"><p>21.75</p></td>
+<td class="text-align:center"><p>5.64</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/darknet53">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SqueezeResNet1.1 (<a class="reference external" href="https://arxiv.org/abs/1602.07360">‘SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and &lt;0.5MB model size’</a>)</p></td>
+<td class="text-align:center"><p>1,235,496</p></td>
+<td class="text-align:center"><p>352.02M</p></td>
+<td class="text-align:center"><p>40.09</p></td>
+<td class="text-align:center"><p>18.21</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/squeezeresnet_v1_1">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SqueezeNet1.1 (<a class="reference external" href="https://arxiv.org/abs/1602.07360">‘SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and &lt;0.5MB model size’</a>)</p></td>
+<td class="text-align:center"><p>1,235,496</p></td>
+<td class="text-align:center"><p>352.02M</p></td>
+<td class="text-align:center"><p>39.31</p></td>
+<td class="text-align:center"><p>17.72</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/squeezenet_v1_1">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResAttNet-92 (<a class="reference external" href="https://arxiv.org/abs/1704.06904">‘Residual Attention Network for Image Classification’</a>)</p></td>
+<td class="text-align:center"><p>51.3M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>19.5</p></td>
+<td class="text-align:center"><p>4.8</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>CondenseNet (G=C=8) (<a class="reference external" href="https://arxiv.org/abs/1711.09224">‘CondenseNet: An Efficient DenseNet using Learned Group Convolutions’</a>)</p></td>
+<td class="text-align:center"><p>4.8M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>26.2</p></td>
+<td class="text-align:center"><p>8.3</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DPN-68 (<a class="reference external" href="https://arxiv.org/abs/1707.01629">‘Dual Path Networks’</a>)</p></td>
+<td class="text-align:center"><p>12,611,602</p></td>
+<td class="text-align:center"><p>2,351.84M</p></td>
+<td class="text-align:center"><p>23.24</p></td>
+<td class="text-align:center"><p>6.79</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/dpn68">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ShuffleNet x1.0 (g=1) (<a class="reference external" href="https://arxiv.org/abs/1707.01083">‘ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices’</a>)</p></td>
+<td class="text-align:center"><p>1,531,936</p></td>
+<td class="text-align:center"><p>148.13M</p></td>
+<td class="text-align:center"><p>34.93</p></td>
+<td class="text-align:center"><p>13.89</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/shufflenet_g1_w1">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DiracNetV2-18 (<a class="reference external" href="https://arxiv.org/abs/1706.00388">‘DiracNets: Training Very Deep Neural Networks Without Skip-Connections’</a>)</p></td>
+<td class="text-align:center"><p>11,511,784</p></td>
+<td class="text-align:center"><p>1,796.62M</p></td>
+<td class="text-align:center"><p>31.47</p></td>
+<td class="text-align:center"><p>11.70</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/diracnet18v2">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DiracNetV2-34 (<a class="reference external" href="https://arxiv.org/abs/1706.00388">‘DiracNets: Training Very Deep Neural Networks Without Skip-Connections’</a>)</p></td>
+<td class="text-align:center"><p>21,616,232</p></td>
+<td class="text-align:center"><p>3,646.93M</p></td>
+<td class="text-align:center"><p>28.75</p></td>
+<td class="text-align:center"><p>9.93</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/diracnet34v2">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SENet-16 (<a class="reference external" href="https://arxiv.org/abs/1709.01507">‘Squeeze-and-Excitation Networks’</a>)</p></td>
+<td class="text-align:center"><p>31,366,168</p></td>
+<td class="text-align:center"><p>5,081.30M</p></td>
+<td class="text-align:center"><p>25.65</p></td>
+<td class="text-align:center"><p>8.20</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/senet14">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SENet-154 (<a class="reference external" href="https://arxiv.org/abs/1709.01507">‘Squeeze-and-Excitation Networks’</a>)</p></td>
+<td class="text-align:center"><p>115,088,984</p></td>
+<td class="text-align:center"><p>20,745.78M</p></td>
+<td class="text-align:center"><p>18.62</p></td>
+<td class="text-align:center"><p>4.61</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MobileNet (<a class="reference external" href="https://arxiv.org/abs/1704.04861">‘MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications’</a>)</p></td>
+<td class="text-align:center"><p>4,231,976</p></td>
+<td class="text-align:center"><p>579.80M</p></td>
+<td class="text-align:center"><p>26.61</p></td>
+<td class="text-align:center"><p>8.95</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/mobilenet_w1">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>NASNet-A 4&#64;1056 (<a class="reference external" href="https://arxiv.org/abs/1707.07012">‘Learning Transferable Architectures for Scalable Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>5,289,978</p></td>
+<td class="text-align:center"><p>584.90M</p></td>
+<td class="text-align:center"><p>25.68</p></td>
+<td class="text-align:center"><p>8.16</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/nasnet_4a1056">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>NASNet-A 6&#64;4032(<a class="reference external" href="https://arxiv.org/abs/1707.07012">‘Learning Transferable Architectures for Scalable Image Recognition’</a>)</p></td>
+<td class="text-align:center"><p>88,753,150</p></td>
+<td class="text-align:center"><p>23,976.44M</p></td>
+<td class="text-align:center"><p>18.14</p></td>
+<td class="text-align:center"><p>4.21</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DLA-34 (<a class="reference external" href="https://arxiv.org/abs/1707.06484">‘Deep Layer Aggregation’</a>)</p></td>
+<td class="text-align:center"><p>15,742,104</p></td>
+<td class="text-align:center"><p>3,071.37M</p></td>
+<td class="text-align:center"><p>25.36</p></td>
+<td class="text-align:center"><p>7.94</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/dla34">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>AirNet50-1x64d (r=2) (<a class="reference external" href="https://ieeexplore.ieee.org/document/8510896">‘Attention Inspiring Receptive-Fields Network for Learning Invariant Representations’</a>)</p></td>
+<td class="text-align:center"><p>27.43M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>22.48</p></td>
+<td class="text-align:center"><p>6.21</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>BAM-ResNet-50 (<a class="reference external" href="https://arxiv.org/abs/1807.06514">‘BAM: Bottleneck Attention Module’</a>)</p></td>
+<td class="text-align:center"><p>25.92M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>23.68</p></td>
+<td class="text-align:center"><p>6.96</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CBAM-ResNet-50 (<a class="reference external" href="https://arxiv.org/abs/1807.06521">‘CBAM: Convolutional Block Attention Module’</a>)</p></td>
+<td class="text-align:center"><p>28.1M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>23.02</p></td>
+<td class="text-align:center"><p>6.38</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>1.0-SqNxt-23v5 (<a class="reference external" href="https://arxiv.org/abs/1803.10615">‘SqueezeNext: Hardware-Aware Neural Network Design’</a>)</p></td>
+<td class="text-align:center"><p>921,816</p></td>
+<td class="text-align:center"><p>285.82M</p></td>
+<td class="text-align:center"><p>40.77</p></td>
+<td class="text-align:center"><p>17.85</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1.5-SqNxt-23v5 (<a class="reference external" href="https://arxiv.org/abs/1803.10615">‘SqueezeNext: Hardware-Aware Neural Network Design’</a>)</p></td>
+<td class="text-align:center"><p>1,953,616</p></td>
+<td class="text-align:center"><p>550.97M</p></td>
+<td class="text-align:center"><p>33.81</p></td>
+<td class="text-align:center"><p>13.01</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>2.0-SqNxt-23v5 (<a class="reference external" href="https://arxiv.org/abs/1803.10615">‘SqueezeNext: Hardware-Aware Neural Network Design’</a>)</p></td>
+<td class="text-align:center"><p>3,366,344</p></td>
+<td class="text-align:center"><p>897.60M</p></td>
+<td class="text-align:center"><p>29.63</p></td>
+<td class="text-align:center"><p>10.66</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ShuffleNetV2 (<a class="reference external" href="https://arxiv.org/abs/1807.11164">‘ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design’</a>)</p></td>
+<td class="text-align:center"><p>2,278,604</p></td>
+<td class="text-align:center"><p>149.72M</p></td>
+<td class="text-align:center"><p>31.44</p></td>
+<td class="text-align:center"><p>11.63</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/shufflenetv2_w1">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>456-MENet-24×1(g=3) (<a class="reference external" href="https://arxiv.org/abs/1803.09127">‘Merging and Evolution: Improving Convolutional Neural Networks for Mobile Applications’</a>)</p></td>
+<td class="text-align:center"><p>5.3M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>28.4</p></td>
+<td class="text-align:center"><p>9.8</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>FD-MobileNet (<a class="reference external" href="https://arxiv.org/abs/1802.03750">‘FD-MobileNet: Improved MobileNet with A Fast Downsampling Strategy’</a>)</p></td>
+<td class="text-align:center"><p>2,901,288</p></td>
+<td class="text-align:center"><p>147.46M</p></td>
+<td class="text-align:center"><p>34.23</p></td>
+<td class="text-align:center"><p>13.38</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/fdmobilenet_w1">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MobileNetV2 (<a class="reference external" href="https://arxiv.org/abs/1801.04381">‘MobileNetV2: Inverted Residuals and Linear Bottlenecks’</a>)</p></td>
+<td class="text-align:center"><p>3,504,960</p></td>
+<td class="text-align:center"><p>329.36M</p></td>
+<td class="text-align:center"><p>26.97</p></td>
+<td class="text-align:center"><p>8.87</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/mobilenetv2_w1">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>IGCV3 (<a class="reference external" href="https://arxiv.org/abs/1806.00178">‘IGCV3: Interleaved Low-Rank Group Convolutions for Efficient Deep Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>3.5M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>28.22</p></td>
+<td class="text-align:center"><p>9.54</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DARTS (<a class="reference external" href="https://arxiv.org/abs/1806.09055">‘DARTS: Differentiable Architecture Search’</a>)</p></td>
+<td class="text-align:center"><p>4.9M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>26.9</p></td>
+<td class="text-align:center"><p>9.0</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PNASNet-5 (<a class="reference external" href="https://arxiv.org/abs/1712.00559">‘Progressive Neural Architecture Search’</a>)</p></td>
+<td class="text-align:center"><p>5.1M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>25.8</p></td>
+<td class="text-align:center"><p>8.1</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>AmoebaNet-C (<a class="reference external" href="https://arxiv.org/abs/1802.01548">‘Regularized Evolution for Image Classifier Architecture Search’</a>)</p></td>
+<td class="text-align:center"><p>5.1M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>24.3</p></td>
+<td class="text-align:center"><p>7.6</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MnasNet (<a class="reference external" href="https://arxiv.org/abs/1807.11626">‘MnasNet: Platform-Aware Neural Architecture Search for Mobile’</a>)</p></td>
+<td class="text-align:center"><p>4,308,816</p></td>
+<td class="text-align:center"><p>317.67M</p></td>
+<td class="text-align:center"><p>31.58</p></td>
+<td class="text-align:center"><p>11.74</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/mnasnet">Try live</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>IBN-Net50-a (<a class="reference external" href="https://arxiv.org/abs/1807.09441">‘Two at Once: Enhancing Learning andGeneralization Capacities via IBN-Net’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>22.54</p></td>
+<td class="text-align:center"><p>6.32</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MarginNet (<a class="reference external" href="http://papers.nips.cc/paper/7364-large-margin-deep-networks-for-classification.pdf">‘Large Margin Deep Networks for Classification’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>22.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>A^2 Net (<a class="reference external" href="http://papers.nips.cc/paper/7318-a2-nets-double-attention-networks.pdf">‘A^2-Nets: Double Attention Networks’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>23.0</p></td>
+<td class="text-align:center"><p>6.5</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>FishNeXt-150 (<a class="reference external" href="http://papers.nips.cc/paper/7356-fishnet-a-versatile-backbone-for-image-region-and-pixel-level-prediction.pdf">‘FishNet: A Versatile Backbone for Image, Region, and Pixel Level Prediction’</a>)</p></td>
+<td class="text-align:center"><p>26.2M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>21.5</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Shape-ResNet (<a class="reference external" href="https://arxiv.org/pdf/1811.12231v2.pdf">‘IMAGENET-TRAINED CNNS ARE BIASED TOWARDS TEXTURE; INCREASING SHAPE BIAS IMPROVES ACCURACY AND ROBUSTNESS’</a>)</p></td>
+<td class="text-align:center"><p>25.5M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>23.28</p></td>
+<td class="text-align:center"><p>6.72</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SimCNN(k=3 train) (<a class="reference external" href="https://arxiv.org/pdf/1812.11446.pdf">‘Greedy Layerwise Learning Can Scale to ImageNet’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>28.4</p></td>
+<td class="text-align:center"><p>10.2</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SKNet-50 (<a class="reference external" href="https://arxiv.org/pdf/1903.06586.pdf">‘Selective Kernel Networks’</a>)</p></td>
+<td class="text-align:center"><p>27.5M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>20.79</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SRM-ResNet-50 (<a class="reference external" href="https://arxiv.org/pdf/1903.10829.pdf">‘SRM : A Style-based Recalibration Module for Convolutional Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>25.62M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>22.87</p></td>
+<td class="text-align:center"><p>6.49</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>EfficientNet-B0  (<a class="reference external" href="http://proceedings.mlr.press/v97/tan19a/tan19a.pdf">‘EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>5,288,548</p></td>
+<td class="text-align:center"><p>414.31M</p></td>
+<td class="text-align:center"><p>24.77</p></td>
+<td class="text-align:center"><p>7.52</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p><a class="reference external" href="https://nerox8664.github.io/cls/#/efficientnet_b0">Try live</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>EfficientNet-B7b (<a class="reference external" href="http://proceedings.mlr.press/v97/tan19a/tan19a.pdf">‘EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>66,347,960</p></td>
+<td class="text-align:center"><p>39,010.98M</p></td>
+<td class="text-align:center"><p>15.94</p></td>
+<td class="text-align:center"><p>3.22</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ProxylessNAS (<a class="reference external" href="https://arxiv.org/pdf/1812.00332.pdf">‘PROXYLESSNAS: DIRECT NEURAL ARCHITECTURE SEARCH ON TARGET TASK AND HARDWARE’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>24.9</p></td>
+<td class="text-align:center"><p>7.5</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MixNet-L (<a class="reference external" href="https://arxiv.org/abs/1907.09595">‘MixNet: Mixed Depthwise Convolutional Kernels’</a>)</p></td>
+<td class="text-align:center"><p>7.3M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>21.1</p></td>
+<td class="text-align:center"><p>5.8</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ECA-Net50 (<a class="reference external" href="https://arxiv.org/pdf/1910.03151v1.pdf">‘ECA-Net: Efficient Channel Attention for Deep Convolutional Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>24.37M</p></td>
+<td class="text-align:center"><p>3.86G</p></td>
+<td class="text-align:center"><p>22.52</p></td>
+<td class="text-align:center"><p>6.32</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ECA-Net101 (<a class="reference external" href="https://arxiv.org/pdf/1910.03151v1.pdf">‘ECA-Net: Efficient Channel Attention for Deep Convolutional Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>7.3M</p></td>
+<td class="text-align:center"><p>7.35G</p></td>
+<td class="text-align:center"><p>21.35</p></td>
+<td class="text-align:center"><p>5.66</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ACNet-Densenet121 (<a class="reference external" href="https://arxiv.org/abs/1908.03930">‘ACNet: Strengthening the Kernel Skeletons for Powerful CNN via Asymmetric Convolution Blocks’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>24.18</p></td>
+<td class="text-align:center"><p>7.23</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LIP-ResNet-50 (<a class="reference external" href="https://arxiv.org/abs/1908.04156">‘LIP: Local Importance-based Pooling’</a>)</p></td>
+<td class="text-align:center"><p>23.9M</p></td>
+<td class="text-align:center"><p>5.33G</p></td>
+<td class="text-align:center"><p>21.81</p></td>
+<td class="text-align:center"><p>6.04</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LIP-ResNet-101 (<a class="reference external" href="https://arxiv.org/abs/1908.04156">‘LIP: Local Importance-based Pooling’</a>)</p></td>
+<td class="text-align:center"><p>42.9M</p></td>
+<td class="text-align:center"><p>9.06G</p></td>
+<td class="text-align:center"><p>20.67</p></td>
+<td class="text-align:center"><p>5.40</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>LIP-DenseNet-BC-121 (<a class="reference external" href="https://arxiv.org/abs/1908.04156">‘LIP: Local Importance-based Pooling’</a>)</p></td>
+<td class="text-align:center"><p>8.7M</p></td>
+<td class="text-align:center"><p>4.13G</p></td>
+<td class="text-align:center"><p>23.36</p></td>
+<td class="text-align:center"><p>6.84</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MuffNet_1.0 (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCVW_2019/papers/CEFRL/Chen_MuffNet_Multi-Layer_Feature_Federation_for_Mobile_Deep_Learning_ICCVW_2019_paper.pdf">‘MuffNet: Multi-Layer Feature Federation for Mobile Deep Learning’</a>)</p></td>
+<td class="text-align:center"><p>2.3M</p></td>
+<td class="text-align:center"><p>146M</p></td>
+<td class="text-align:center"><p>30.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MuffNet_1.5 (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCVW_2019/papers/CEFRL/Chen_MuffNet_Multi-Layer_Feature_Federation_for_Mobile_Deep_Learning_ICCVW_2019_paper.pdf">‘MuffNet: Multi-Layer Feature Federation for Mobile Deep Learning’</a>)</p></td>
+<td class="text-align:center"><p>3.4M</p></td>
+<td class="text-align:center"><p>300M</p></td>
+<td class="text-align:center"><p>26.9</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ResNet-34-Bin-5 (<a class="reference external" href="https://arxiv.org/abs/1904.11486">‘Making Convolutional Networks Shift-Invariant Again’</a>)</p></td>
+<td class="text-align:center"><p>21.8M</p></td>
+<td class="text-align:center"><p>3,672.68M</p></td>
+<td class="text-align:center"><p>25.80</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResNet-50-Bin-5 (<a class="reference external" href="https://arxiv.org/abs/1904.11486">‘Making Convolutional Networks Shift-Invariant Again’</a>)</p></td>
+<td class="text-align:center"><p>25.5M</p></td>
+<td class="text-align:center"><p>3,877.95M</p></td>
+<td class="text-align:center"><p>22.96</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MobileNetV2-Bin-5 (<a class="reference external" href="https://arxiv.org/abs/1904.11486">‘Making Convolutional Networks Shift-Invariant Again’</a>)</p></td>
+<td class="text-align:center"><p>3,504,960</p></td>
+<td class="text-align:center"><p>329.36M</p></td>
+<td class="text-align:center"><p>27.50</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>FixRes ResNeXt101 WSL (<a class="reference external" href="https://arxiv.org/abs/1906.06423">‘Fixing the train-test resolution discrepancy’</a>)</p></td>
+<td class="text-align:center"><p>829M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>13.6</p></td>
+<td class="text-align:center"><p>2.0</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Noisy Student*(L2) (<a class="reference external" href="https://arxiv.org/abs/1911.04252">‘Self-training with Noisy Student improves ImageNet classification’</a>)</p></td>
+<td class="text-align:center"><p>480M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>12.6</p></td>
+<td class="text-align:center"><p>1.8</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>TResNet-M (<a class="reference external" href="https://arxiv.org/abs/2003.13630">‘TResNet: High Performance GPU-Dedicated Architecture’</a>)</p></td>
+<td class="text-align:center"><p>29.4M</p></td>
+<td class="text-align:center"><p>5.5G</p></td>
+<td class="text-align:center"><p>19.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DA-NAS-C (<a class="reference external" href="https://arxiv.org/abs/2003.12563v1">‘DA-NAS: Data Adapted Pruning for Efficient Neural Architecture Search’</a>)</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>467M</p></td>
+<td class="text-align:center"><p>23.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResNeSt-50 (<a class="reference external" href="https://arxiv.org/abs/2004.08955">‘ResNeSt: Split-Attention Networks’</a>)</p></td>
+<td class="text-align:center"><p>27.5M</p></td>
+<td class="text-align:center"><p>5.39G</p></td>
+<td class="text-align:center"><p>18.87</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ResNeSt-101 (<a class="reference external" href="https://arxiv.org/abs/2004.08955">‘ResNeSt: Split-Attention Networks’</a>)</p></td>
+<td class="text-align:center"><p>48.3M</p></td>
+<td class="text-align:center"><p>10.2G</p></td>
+<td class="text-align:center"><p>17.73</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResNet-50-FReLU (<a class="reference external" href="https://arxiv.org/abs/2007.11824v2">‘Funnel Activation for Visual Recognition’</a>)</p></td>
+<td class="text-align:center"><p>25.5M</p></td>
+<td class="text-align:center"><p>3.87G</p></td>
+<td class="text-align:center"><p>22.40</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ResNet-101-FReLU (<a class="reference external" href="https://arxiv.org/abs/2007.11824v2">‘Funnel Activation for Visual Recognition’</a>)</p></td>
+<td class="text-align:center"><p>44.5M</p></td>
+<td class="text-align:center"><p>7.6G</p></td>
+<td class="text-align:center"><p>22.10</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ResNet-50-MEALv2 (<a class="reference external" href="https://arxiv.org/abs/2009.08453v1">‘MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks’</a>)</p></td>
+<td class="text-align:center"><p>25.6M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>19.33</p></td>
+<td class="text-align:center"><p>4.91</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ResNet-50-MEALv2 + CutMix (<a class="reference external" href="https://arxiv.org/abs/2009.08453v1">‘MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks’</a>)</p></td>
+<td class="text-align:center"><p>25.6M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>19.02</p></td>
+<td class="text-align:center"><p>4.65</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MobileNet V3-Large-MEALv2 (<a class="reference external" href="https://arxiv.org/abs/2009.08453v1">‘MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks’</a>)</p></td>
+<td class="text-align:center"><p>5.48M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>23.08</p></td>
+<td class="text-align:center"><p>6.68</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>EfficientNet-B0-MEALv2 (<a class="reference external" href="https://arxiv.org/abs/2009.08453v1">‘MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks’</a>)</p></td>
+<td class="text-align:center"><p>5.29M</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>21.71</p></td>
+<td class="text-align:center"><p>6.05</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>T2T-ViT-7  (<a class="reference external" href="https://arxiv.org/abs/2101.11986v1">‘Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet’</a>)</p></td>
+<td class="text-align:center"><p>4.2M</p></td>
+<td class="text-align:center"><p>0.6G</p></td>
+<td class="text-align:center"><p>28.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2021</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>T2T-ViT-14 (<a class="reference external" href="https://arxiv.org/abs/2101.11986v1">‘Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet’</a>)</p></td>
+<td class="text-align:center"><p>19.4M</p></td>
+<td class="text-align:center"><p>4.8G</p></td>
+<td class="text-align:center"><p>19.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2021</p></td>
+<td class="text-align:center"><p>X</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>T2T-ViT-19 (<a class="reference external" href="https://arxiv.org/abs/2101.11986v1">‘Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet’</a>)</p></td>
+<td class="text-align:center"><p>39.0M</p></td>
+<td class="text-align:center"><p>8.0G</p></td>
+<td class="text-align:center"><p>18.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>2021</p></td>
+<td class="text-align:center"><p>X</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="nlp">
-<h2><a class="reference external" href="https://registry.opendata.aws/fast-ai-nlp/">NLP</a><a class="headerlink" href="#nlp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="segmentation-models">
+<h2>Segmentation models<a class="headerlink" href="#segmentation-models" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Source</p></th>
-<th class="head"><p>Citation</p></th>
-<th class="head"><p>Download</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Model</p></th>
+<th class="text-align:center head"><p>Year</p></th>
+<th class="text-align:center head"><p>PASCAL-Context</p></th>
+<th class="text-align:center head"><p>Cityscapes (mIOU)</p></th>
+<th class="text-align:center head"><p>PASCAL VOC 2012 (mIOU)</p></th>
+<th class="text-align:center head"><p>COCO Stuff</p></th>
+<th class="text-align:center head"><p>ADE20K VAL (mIOU)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/">IMDb Large Movie Review Dataset</a></p></td>
-<td><p><a class="reference external" href="http://ai.stanford.edu/~amaas/papers/wvSent_acl2011.pdf">Andrew L. Maas et al., 2011</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz">download</a></p></td>
-<td><p>A dataset for binary sentiment classification containing 25,000 highly polarized movie reviews for training, and 25,000 for testing. There is additional unlabeled data for use as well.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>U-Net (<a class="reference external" href="https://arxiv.org/pdf/1505.04597.pdf">‘U-Net: Convolutional Networks for Biomedical Image Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="https://blog.einstein.ai/the-wikitext-long-term-dependency-language-modeling-dataset/">Wikitext-103</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1609.07843">Stephen Merity et al., 2016</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/wikitext-103.tgz">download</a></p></td>
-<td><p>A collection of over 100 million tokens extracted from the set of verified Good and Featured articles on Wikipedia. Widely used for language modeling, including the pretrained models used in the fastai library and ULMFiT algorithm.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>DeconvNet (<a class="reference external" href="https://arxiv.org/pdf/1505.04366.pdf">‘Learning Deconvolution Network for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>72.5</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://blog.einstein.ai/the-wikitext-long-term-dependency-language-modeling-dataset/">Wikitext-2</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1609.07843">Stephen Merity et al., 2016</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/wikitext-2.tgz">download</a></p></td>
-<td><p>A subset of Wikitext-103; useful for testing language model training on smaller datasets.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>ParseNet (<a class="reference external" href="https://arxiv.org/abs/1506.04579">‘ParseNet: Looking Wider to See Better’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>40.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>69.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://www.statmt.org/wmt15/translation-task.html">WMT 2015 French/English parallel texts</a></p></td>
-<td><p><a class="reference external" href="https://www.cis.upenn.edu/~ccb/publications/findings-of-the-wmt09-shared-tasks.pdf">Callison-Burch et al., 2009</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/giga-fren.tgz">download</a></p></td>
-<td><p>French/English parallel texts for training translation models. Over 20 million sentences in French and English. Dataset created by Chris Callison-Burch, who crawled millions of web pages and then used a set of simple heuristics to transform French URLs onto English URLs, and assumed that these documents are translations of each other.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>Piecewise (<a class="reference external" href="https://arxiv.org/abs/1504.01013">‘Efficient piecewise training of deep structured models for semantic segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>43.3</p></td>
+<td class="text-align:center"><p>71.6</p></td>
+<td class="text-align:center"><p>78.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">AG News</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/ag_news_csv.tgz">download</a></p></td>
-<td><p>496,835 categorized news articles from &gt;2000 news sources from the 4 largest classes from AG’s corpus of news articles, using only the title and description fields. The number of training samples for each class is 30,000 and testing 1900.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>SegNet (<a class="reference external" href="https://arxiv.org/pdf/1511.00561.pdf">‘SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>56.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Amazon reviews - Full</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/amazon_review_full_csv.tgz">download</a></p></td>
-<td><p>34,686,770 Amazon reviews from 6,643,669 users on 2,441,053 products, from the Stanford Network Analysis Project (SNAP).  This full dataset contains 600,000 training samples and 130,000 testing samples in each class.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>FCN (<a class="reference external" href="https://arxiv.org/pdf/1605.06211.pdf">‘Fully Convolutional Networks for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>37.8</p></td>
+<td class="text-align:center"><p>65.3</p></td>
+<td class="text-align:center"><p>62.2</p></td>
+<td class="text-align:center"><p>22.7</p></td>
+<td class="text-align:center"><p>29.39</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Amazon reviews - Polarity</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/amazon_review_polarity_csv.tgz">download</a></p></td>
-<td><p>34,686,770 Amazon reviews from 6,643,669 users on 2,441,053 products, from the Stanford Network Analysis Project (SNAP).  This subset contains 1,800,000 training samples and 200,000 testing samples in each polarity sentiment.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>ENet (<a class="reference external" href="https://arxiv.org/pdf/1606.02147.pdf">‘ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>58.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">DBPedia ontology</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/dbpedia_csv.tgz">download</a></p></td>
-<td><p>40,000 training samples and 5,000 testing samples from 14 nonoverlapping classes from DBpedia 2014.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>DilatedNet (<a class="reference external" href="https://arxiv.org/pdf/1511.07122.pdf">‘MULTI-SCALE CONTEXT AGGREGATION BY DILATED CONVOLUTIONS’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>67.6</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>32.31</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Sogou news</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/sogou_news_csv.tgz">download</a></p></td>
-<td><p>2,909,551 news articles from the SogouCA and SogouCS news corpora, in 5 categories. The number of training samples selected for each class is 90,000 and testing 12,000. Note that the Chinese characters have been converted to Pinyin.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>PixelNet (<a class="reference external" href="https://arxiv.org/pdf/1609.06694.pdf">‘PixelNet: Towards a General Pixel-Level Architecture’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>69.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Yahoo! Answers</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/yahoo_answers_csv.tgz">download</a></p></td>
-<td><p>The  10 largest main categories from the Yahoo! Answers Comprehensive Questions and Answers version 1.0 dataset. Each class contains 140,000 training samples and 5,000 testing samples.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>RefineNet (<a class="reference external" href="https://arxiv.org/pdf/1611.06612.pdf">‘RefineNet: Multi-Path Refinement Networks for High-Resolution Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>47.3</p></td>
+<td class="text-align:center"><p>73.6</p></td>
+<td class="text-align:center"><p>83.4</p></td>
+<td class="text-align:center"><p>33.6</p></td>
+<td class="text-align:center"><p>40.70</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Yelp reviews - Full</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/yelp_review_full_csv.tgz">download</a></p></td>
-<td><p>1,569,264 samples from the Yelp Dataset Challenge 2015. This full dataset has 130,000 training samples and 10,000 testing samples in each star.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>LRR (<a class="reference external" href="https://arxiv.org/pdf/1605.02264.pdf">‘Laplacian Pyramid Reconstruction and Refinement for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>71.8</p></td>
+<td class="text-align:center"><p>79.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://xzh.me/docs/charconvnet.pdf">Yelp reviews - Polarity</a></p></td>
-<td><p><a class="reference external" href="https://arxiv.org/abs/1509.01626">Xiang Zhang et al., 2015</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-nlp/yelp_review_polarity_csv.tgz">download</a></p></td>
-<td><p>1,569,264 samples from the Yelp Dataset Challenge 2015. This subset has 280,000 training samples and 19,000 test samples in each polarity.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>FRRN (<a class="reference external" href="https://arxiv.org/pdf/1611.08323.pdf">‘Full-Resolution Residual Networks for Semantic Segmentation in Street Scenes’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>71.8</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MultiNet (<a class="reference external" href="https://arxiv.org/pdf/1612.07695.pdf">‘MultiNet: Real-time Joint Semantic Reasoning for Autonomous Driving’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DeepLab (<a class="reference external" href="https://arxiv.org/pdf/1606.00915.pdf">‘DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>45.7</p></td>
+<td class="text-align:center"><p>64.8</p></td>
+<td class="text-align:center"><p>79.7</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LinkNet (<a class="reference external" href="https://arxiv.org/pdf/1707.03718.pdf">‘LinkNet: Exploiting Encoder Representations for Efficient Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Tiramisu (<a class="reference external" href="https://arxiv.org/pdf/1611.09326.pdf">‘The One Hundred Layers Tiramisu: Fully Convolutional DenseNets for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ICNet (<a class="reference external" href="https://arxiv.org/pdf/1704.08545.pdf">‘ICNet for Real-Time Semantic Segmentation on High-Resolution Images’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>70.6</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ERFNet (<a class="reference external" href="http://www.robesafe.uah.es/personal/eduardo.romera/pdfs/Romera17iv.pdf">‘Efficient ConvNet for Real-time Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>68.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PSPNet (<a class="reference external" href="https://arxiv.org/pdf/1612.01105.pdf">‘Pyramid Scene Parsing Network’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>47.8</p></td>
+<td class="text-align:center"><p>80.2</p></td>
+<td class="text-align:center"><p>85.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>44.94</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>GCN (<a class="reference external" href="https://arxiv.org/pdf/1703.02719.pdf">‘Large Kernel Matters — Improve Semantic Segmentation by Global Convolutional Network’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>76.9</p></td>
+<td class="text-align:center"><p>82.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Segaware (<a class="reference external" href="https://arxiv.org/pdf/1708.04607.pdf">‘Segmentation-Aware Convolutional Networks Using Local Attention Masks’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>69.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>PixelDCN (<a class="reference external" href="https://arxiv.org/pdf/1705.06820.pdf">‘PIXEL DECONVOLUTIONAL NETWORKS’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>73.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DeepLabv3 (<a class="reference external" href="https://arxiv.org/pdf/1706.05587.pdf">‘Rethinking Atrous Convolution for Semantic Image Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>85.7</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DUC, HDC (<a class="reference external" href="https://arxiv.org/pdf/1702.08502.pdf">‘Understanding Convolution for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>77.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ShuffleSeg (<a class="reference external" href="https://arxiv.org/pdf/1803.03816.pdf">‘SHUFFLESEG: REAL-TIME SEMANTIC SEGMENTATION NETWORK’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>59.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>AdaptSegNet (<a class="reference external" href="https://arxiv.org/pdf/1802.10349.pdf">‘Learning to Adapt Structured Output Space for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>46.7</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>TuSimple-DUC (<a class="reference external" href="https://arxiv.org/pdf/1702.08502.pdf">‘Understanding Convolution for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>80.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>83.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>R2U-Net (<a class="reference external" href="https://arxiv.org/pdf/1802.06955.pdf">‘Recurrent Residual Convolutional Neural Network based on U-Net (R2U-Net) for Medical Image Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Attention U-Net (<a class="reference external" href="https://arxiv.org/pdf/1804.03999.pdf">‘Attention U-Net: Learning Where to Look for the Pancreas’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DANet (<a class="reference external" href="https://arxiv.org/pdf/1809.02983.pdf">‘Dual Attention Network for Scene Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>52.6</p></td>
+<td class="text-align:center"><p>81.5</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>39.7</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ENCNet (<a class="reference external" href="https://arxiv.org/abs/1803.08904">‘Context Encoding for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>51.7</p></td>
+<td class="text-align:center"><p>75.8</p></td>
+<td class="text-align:center"><p>85.9</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>44.65</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ShelfNet (<a class="reference external" href="https://arxiv.org/pdf/1811.11254.pdf">‘ShelfNet for Real-time Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>48.4</p></td>
+<td class="text-align:center"><p>75.8</p></td>
+<td class="text-align:center"><p>84.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LadderNet (<a class="reference external" href="https://arxiv.org/pdf/1810.07810.pdf">‘LADDERNET: MULTI-PATH NETWORKS BASED ON U-NET FOR MEDICAL IMAGE SEGMENTATION’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CCC-ERFnet (<a class="reference external" href="https://arxiv.org/pdf/1812.04920v1.pdf">‘Concentrated-Comprehensive Convolutions for lightweight semantic segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>69.01</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DifNet-101 (<a class="reference external" href="http://papers.nips.cc/paper/7435-difnet-semantic-segmentation-by-diffusion-networks.pdf">‘DifNet: Semantic Segmentation by Diffusion Networks’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>45.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>73.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>BiSeNet(Res18) (<a class="reference external" href="https://arxiv.org/pdf/1808.00897.pdf">‘BiSeNet: Bilateral Segmentation Network for Real-time Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>74.7</p></td>
+<td class="text-align:center"><p>28.1</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ESPNet (<a class="reference external" href="https://arxiv.org/pdf/1803.06815.pdf">‘ESPNet: Efficient Spatial Pyramid of Dilated Convolutions for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>63.01</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SPADE (<a class="reference external" href="https://arxiv.org/pdf/1903.07291.pdf">‘Semantic Image Synthesis with Spatially-Adaptive Normalization’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>62.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>37.4</p></td>
+<td class="text-align:center"><p>38.5</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SeamlessSeg (<a class="reference external" href="https://arxiv.org/pdf/1905.01220v1.pdf">‘Seamless Scene Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>77.5</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>EMANet (<a class="reference external" href="https://arxiv.org/pdf/1907.13426.pdf">‘Expectation-Maximization Attention Networks for Semantic Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>88.2</p></td>
+<td class="text-align:center"><p>39.9</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="image-localization">
-<h2><a class="reference external" href="https://registry.opendata.aws/fast-ai-imagelocal/">Image localization</a><a class="headerlink" href="#image-localization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="detection-models">
+<h2>Detection models<a class="headerlink" href="#detection-models" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Source</p></th>
-<th class="head"><p>Citation</p></th>
-<th class="head"><p>Download</p></th>
-<th class="head"><p>Description</p></th>
+<tr class="row-odd"><th class="text-align:center head"><p>Model</p></th>
+<th class="text-align:center head"><p>Year</p></th>
+<th class="text-align:center head"><p>VOC07 (mAP&#64;IoU=0.5)</p></th>
+<th class="text-align:center head"><p>VOC12 (mAP&#64;IoU=0.5)</p></th>
+<th class="text-align:center head"><p>COCO (mAP)</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference external" href="http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/">Camvid: Motion-based Segmentation and Recognition Dataset</a></p></td>
-<td><p><a class="reference external" href="https://pdfs.semanticscholar.org/08f6/24f7ee5c3b05b1b604357fb1532241e208db.pdf">Brostow et al., 2008</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/camvid.tgz">download</a></p></td>
-<td><p>Segmentation dataset with per-pixel semantic segmentation of over 700 images, each inspected and confirmed by a second person for accuracy.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>R-CNN (<a class="reference external" href="https://arxiv.org/pdf/1311.2524.pdf">‘Rich feature hierarchies for accurate object detection and semantic segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>58.5</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL Visual Object Classes (VOC)</a></p></td>
-<td><p><a class="reference external" href="http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf">Everingham, M et al., 2010</a></p></td>
-<td><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal-voc.tgz">download</a></p></td>
-<td><p>Standardised image data sets for object class recognition - both 2007 and 2012 versions are provided here. The 2012 version has 20 classes. The train/val data has 11,530 images containing 27,450 ROI annotated objects and 6,929 segmentations. There are also simplifed version for the annotated objects of the <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal_2007.tgz">2007 version</a> and the <a class="reference external" href="https://s3.amazonaws.com/fast-ai-imagelocal/pascal_2012.tgz">2012 version</a>.</p></td>
+<tr class="row-odd"><td class="text-align:center"><p>OverFeat (<a class="reference external" href="https://arxiv.org/pdf/1312.6229.pdf">‘OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks’</a>)</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MultiBox (<a class="reference external" href="https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Erhan_Scalable_Object_Detection_2014_CVPR_paper.pdf">‘Scalable Object Detection using Deep Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>29.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SPP-Net (<a class="reference external" href="https://arxiv.org/pdf/1406.4729.pdf">‘Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition’</a>)</p></td>
+<td class="text-align:center"><p>2014</p></td>
+<td class="text-align:center"><p>59.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MR-CNN (<a class="reference external" href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Gidaris_Object_Detection_via_ICCV_2015_paper.pdf">‘Object detection via a multi-region &amp; semantic segmentation-aware CNN model’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>78.2</p></td>
+<td class="text-align:center"><p>73.9</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>AttentionNet (<a class="reference external" href="https://arxiv.org/pdf/1506.07704.pdf">‘AttentionNet: Aggregating Weak Directions for Accurate Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Fast R-CNN (<a class="reference external" href="https://arxiv.org/pdf/1504.08083.pdf">‘Fast R-CNN’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>70.0</p></td>
+<td class="text-align:center"><p>68.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Fast R-CNN (<a class="reference external" href="https://papers.nips.cc/paper/5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf">‘Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks’</a>)</p></td>
+<td class="text-align:center"><p>2015</p></td>
+<td class="text-align:center"><p>73.2</p></td>
+<td class="text-align:center"><p>70.4</p></td>
+<td class="text-align:center"><p>36.8</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>YOLO v1 (<a class="reference external" href="https://arxiv.org/pdf/1506.02640.pdf">‘You Only Look Once: Unified, Real-Time Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>66.4</p></td>
+<td class="text-align:center"><p>57.9</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>G-CNN (<a class="reference external" href="https://arxiv.org/pdf/1512.07729.pdf">‘G-CNN: an Iterative Grid Based Object Detector’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>66.8</p></td>
+<td class="text-align:center"><p>66.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>AZNet (<a class="reference external" href="https://arxiv.org/pdf/1512.07711.pdf">‘Adaptive Object Detection Using Adjacency and Zoom Prediction’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>70.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>22.3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>ION (<a class="reference external" href="https://arxiv.org/pdf/1512.04143.pdf">‘Inside-Outside Net: Detecting Objects in Context with Skip Pooling and Recurrent Neural Networks’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>80.1</p></td>
+<td class="text-align:center"><p>77.9</p></td>
+<td class="text-align:center"><p>33.1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>HyperNet (<a class="reference external" href="https://arxiv.org/pdf/1604.00600.pdf">‘HyperNet: Towards Accurate Region Proposal Generation and Joint Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>76.3</p></td>
+<td class="text-align:center"><p>71.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>OHEM (<a class="reference external" href="https://arxiv.org/pdf/1604.03540.pdf">‘Training Region-based Object Detectors with Online Hard Example Mining’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>78.9</p></td>
+<td class="text-align:center"><p>76.3</p></td>
+<td class="text-align:center"><p>22.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MPN (<a class="reference external" href="https://arxiv.org/pdf/1604.02135.pdf">‘A MultiPath Network for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>33.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SSD (<a class="reference external" href="https://arxiv.org/pdf/1512.02325.pdf">‘SSD: Single Shot MultiBox Detector’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>76.8</p></td>
+<td class="text-align:center"><p>74.9</p></td>
+<td class="text-align:center"><p>31.2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>GBDNet (<a class="reference external" href="https://arxiv.org/pdf/1610.02579.pdf">‘Crafting GBD-Net for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>77.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>27.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CPF (<a class="reference external" href="https://pdfs.semanticscholar.org/40e7/4473cb82231559cbaeaa44989e9bbfe7ec3f.pdf">‘Contextual Priming and Feedback for Faster R-CNN’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>76.4</p></td>
+<td class="text-align:center"><p>72.6</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>MS-CNN  (<a class="reference external" href="https://arxiv.org/pdf/1607.07155.pdf">‘A Unified Multi-scale Deep Convolutional Neural Network for Fast Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>R-FCN (<a class="reference external" href="https://arxiv.org/pdf/1605.06409.pdf">‘R-FCN: Object Detection via Region-based Fully Convolutional Networks’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>79.5</p></td>
+<td class="text-align:center"><p>77.6</p></td>
+<td class="text-align:center"><p>29.9</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>PVANET (<a class="reference external" href="https://arxiv.org/pdf/1608.08021.pdf">‘PVANET: Deep but Lightweight Neural Networks for Real-time Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DeepID-Net (<a class="reference external" href="https://arxiv.org/pdf/1412.5661.pdf">‘DeepID-Net: Deformable Deep Convolutional Neural Networks for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>69.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>NoC (<a class="reference external" href="https://arxiv.org/pdf/1504.06066.pdf">‘Object Detection Networks on Convolutional Feature Maps’</a>)</p></td>
+<td class="text-align:center"><p>2016</p></td>
+<td class="text-align:center"><p>71.6</p></td>
+<td class="text-align:center"><p>68.8</p></td>
+<td class="text-align:center"><p>27.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DSSD (<a class="reference external" href="https://arxiv.org/pdf/1701.06659.pdf">‘DSSD : Deconvolutional Single Shot Detector’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>81.5</p></td>
+<td class="text-align:center"><p>80.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>TDM (<a class="reference external" href="https://arxiv.org/pdf/1612.06851.pdf">‘Beyond Skip Connections: Top-Down Modulation for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>37.3</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>FPN (<a class="reference external" href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Lin_Feature_Pyramid_Networks_CVPR_2017_paper.pdf">‘Feature Pyramid Networks for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>36.2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>YOLO v2 (<a class="reference external" href="https://arxiv.org/pdf/1612.08242.pdf">‘YOLO9000: Better, Faster, Stronger’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>78.6</p></td>
+<td class="text-align:center"><p>73.4</p></td>
+<td class="text-align:center"><p>21.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>RON (<a class="reference external" href="https://arxiv.org/pdf/1707.01691.pdf">‘RON: Reverse Connection with Objectness Prior Networks for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>77.6</p></td>
+<td class="text-align:center"><p>75.4</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DCN (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Dai_Deformable_Convolutional_Networks_ICCV_2017_paper.pdf">‘Deformable Convolutional Networks’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DeNet (<a class="reference external" href="https://arxiv.org/pdf/1703.10295.pdf">‘DeNet: Scalable Real-time Object Detection with Directed Sparse Sampling’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>77.1</p></td>
+<td class="text-align:center"><p>73.9</p></td>
+<td class="text-align:center"><p>33.8</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>CoupleNet (<a class="reference external" href="https://arxiv.org/pdf/1708.02863.pdf">‘CoupleNet: Coupling Global Structure with Local Parts for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>82.7</p></td>
+<td class="text-align:center"><p>80.4</p></td>
+<td class="text-align:center"><p>34.4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>RetinaNet (<a class="reference external" href="https://arxiv.org/pdf/1708.02002.pdf">‘Focal Loss for Dense Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>39.1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Mask R-CNN (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCV_2017/papers/He_Mask_R-CNN_ICCV_2017_paper.pdf">‘Mask R-CNN’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>39.8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>DSOD (<a class="reference external" href="https://arxiv.org/pdf/1708.01241.pdf">‘DSOD: Learning Deeply Supervised Object Detectors from Scratch’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>77.7</p></td>
+<td class="text-align:center"><p>76.3</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SMN (<a class="reference external" href="http://openaccess.thecvf.com/content_ICCV_2017/papers/Chen_Spatial_Memory_for_ICCV_2017_paper.pdf">‘Spatial Memory for Context Reasoning in Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2017</p></td>
+<td class="text-align:center"><p>70.0</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>YOLO v3 (<a class="reference external" href="https://pjreddie.com/media/files/papers/YOLOv3.pdf">‘YOLOv3: An Incremental Improvement’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>33.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SIN (<a class="reference external" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Liu_Structure_Inference_Net_CVPR_2018_paper.pdf">‘Structure Inference Net: Object Detection Using Scene-Level Context and Instance-Level Relationships’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>76.0</p></td>
+<td class="text-align:center"><p>73.1</p></td>
+<td class="text-align:center"><p>23.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>STDN (<a class="reference external" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhou_Scale-Transferrable_Object_Detection_CVPR_2018_paper.pdf">‘Scale-Transferrable Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>80.9</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>RefineDet (<a class="reference external" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Single-Shot_Refinement_Neural_CVPR_2018_paper.pdf">‘Single-Shot Refinement Neural Network for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>83.8</p></td>
+<td class="text-align:center"><p>83.5</p></td>
+<td class="text-align:center"><p>41.8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>MegDet (<a class="reference external" href="http://openaccess.thecvf.com/content_cvpr_2018/papers/Peng_MegDet_A_Large_CVPR_2018_paper.pdf">‘MegDet: A Large Mini-Batch Object Detector’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>RFBNet (<a class="reference external" href="https://arxiv.org/pdf/1711.07767.pdf">‘Receptive Field Block Net for Accurate and Fast Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>82.2</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>CornerNet (<a class="reference external" href="https://arxiv.org/pdf/1808.01244.pdf">‘CornerNet: Detecting Objects as Paired Keypoints’</a>)</p></td>
+<td class="text-align:center"><p>2018</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>42.1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>LibraRetinaNet (<a class="reference external" href="https://arxiv.org/pdf/1904.02701v1.pdf">‘Libra R-CNN: Towards Balanced Learning for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>43.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>YOLACT-700 (<a class="reference external" href="https://arxiv.org/pdf/1904.02689v1.pdf">‘YOLACT Real-time Instance Segmentation’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>31.2</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>DetNASNet(3.8) (<a class="reference external" href="https://arxiv.org/pdf/1903.10979v2.pdf">‘DetNAS: Backbone Search for Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2019</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>42.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>YOLOv4 (<a class="reference external" href="https://arxiv.org/pdf/2004.10934.pdf">‘YOLOv4: Optimal Speed and Accuracy of Object Detection’</a>)</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>46.7</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SOLO (<a class="reference external" href="https://arxiv.org/pdf/1912.04488v3.pdf">‘SOLO: Segmenting Objects by Locations’</a>)</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>37.8</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>D-SOLO (<a class="reference external" href="https://arxiv.org/pdf/1912.04488v3.pdf">‘SOLO: Segmenting Objects by Locations’</a>)</p></td>
+<td class="text-align:center"><p>2020</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>?</p></td>
+<td class="text-align:center"><p>40.5</p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="coco">
-<h3><a class="reference external" href="https://registry.opendata.aws/fast-ai-coco/">COCO</a><a class="headerlink" href="#coco" title="Permalink to this headline">¶</a></h3>
-<p>Probably the most widely used dataset today for object localization is <a class="reference external" href="https://arxiv.org/abs/1405.0312">COCO: Common Objects in Context</a>. Provided here are all the files from the 2017 version, along with an additional <em>subset</em> dataset created by fast.ai. Details of each COCO dataset is available from the <a class="reference external" href="http://cocodataset.org/#download">COCO dataset page</a>. The fast.ai subset contains all images that contain one of five selected categories, restricting objects to just those five categories; the categories are: chair couch tv remote book vase.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/coco_sample.tgz">fast.ai subset</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/train2017.zip">Train images</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/val2017.zip">Val images</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/test2017.zip">Test images</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/unlabeled2017.zip">Unlabeled images</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/image_info_test2017.zip">Testing Image info</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/image_info_unlabeled2017.zip">Unlabeled Image info</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/annotations_trainval2017.zip">Train/Val annotations</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/stuff_annotations_trainval2017.zip">Stuff Train/Val annotations</a></p></li>
-<li><p><a class="reference external" href="https://s3.amazonaws.com/fast-ai-coco/panoptic_annotations_trainval2017.zip">Panoptic Train/Val annotations</a></p></li>
-</ul>
-</div>
 </div>
 </div>
 
@@ -448,6 +1652,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="datasets.html" title="previous page">Datasets</a>
+    <a class='right-next' id="next-link" href="../audio-processing/index.html" title="next page">Audio Intelligence</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

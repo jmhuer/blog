@@ -7,6 +7,7 @@
 
 - [The Elements of Statistical Learning](https://github.com/). This is my go-to refernce for deep learning questions
 - [Deep Learning](https://github.com/). This is my go-to refernce for deep learning questions
+- [Map](https://atlas.mindmup.com/jmhuer/optimization/index.html). Optimization mindmap to help understand the big picture
 
 ---
 

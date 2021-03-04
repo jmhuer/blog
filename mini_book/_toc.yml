@@ -14,6 +14,7 @@
       sections:
           - file: docs/computer-vision/definitions
           - file: docs/computer-vision/datasets
+          - file: docs/computer-vision/tools
     - file: docs/audio-processing/index
       sections:
           - file: docs/audio-processing/definitions
