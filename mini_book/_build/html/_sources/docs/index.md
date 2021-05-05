@@ -11,6 +11,3 @@ Here I store my notes from courses Ive taken, or content relevant to my work.
 -   [Generative Models](http://www.astropy.org/)
 -   [Optimization](http://www.astropy.org/)
 
-
-
-

@@ -10,6 +10,7 @@
     - file: docs/reiforcement/index
       sections:
           - file: docs/reiforcement/definitions
+          - file: docs/reiforcement/datasets
     - file: docs/computer-vision/index
       sections:
           - file: docs/computer-vision/definitions
