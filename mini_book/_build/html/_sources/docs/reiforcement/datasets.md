@@ -7,7 +7,7 @@
 Chapter | Exercises | Solutions
  --- | --- |  ---
 2: Multi-arm Bandit | 2.1, 2.9, 2.10 | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
-3: Finite Markov Decision Process | 3.2, 3.4, 3.5, 3.6, 3.8, 3.9, 3.11 -- 3.14, 3.17 -- 3.20, 3.22 -- 3.29 | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
+3: Finite Markov Decision Process | 3.2, 3.6, 3.8, 3.9, 3.11 -- 3.14, 3.17 -- 3.20, 3.22 -- 3.29 | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
 4: Dynamic Programming | 4.1, 4.3, 4.5, 4.6, 4.10 | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
 5: Monte Carlo Methods | 5.3, 5.5, 5.6 -- 5.8, 5.11  | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
 6: Temporal Difference Learning | 6.2, 6.7, 6.8, 6.12 | [download](https://s3.amazonaws.com/fast-ai-nlp/imdb.tgz)
