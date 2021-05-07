@@ -18,6 +18,7 @@
 
 -   [Algorithm Summary](http://www.astropy.org/) A table of useful datasets used to train/test computer vision systems
 
+-   [Practice Problems](http://scikit-learn.org/stable/) An assortment of practice problems I find useful to understanding reinforcement learning
 
 
 
