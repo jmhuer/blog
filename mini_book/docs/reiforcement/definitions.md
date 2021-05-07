@@ -1,12 +1,6 @@
-# Toolbox
+# Software Tools
 
 
-## Books & References
-
-- [The Elements of Statistical Learning](https://github.com/). This is my go-to refernce for deep learning questions
-- [Deep Learning](https://github.com/). This is my go-to refernce for deep learning questions
-
----
 
 ## Real tme inference on AWS
 
