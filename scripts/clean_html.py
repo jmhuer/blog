@@ -24,3 +24,10 @@ replace =  "<i class=\"fas fa-external-link-alt\">"
 with_ = " "
 
 replace_html(base, replace,with_)
+
+
+replace =  "class=\"fas fa-expand\"></i></button></a>"
+
+with_ = replace + "\n" + "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\"> <a class=\"full-screen-button\"><button type=\"button\" class=\"btn btn-secondary topbarbtn\" data-toggle=\"tooltip\" data-placement=\"bottom\" onclick=\"location.href=\'https://github.com/jmhuer\';\" aria-label=\"Github\" title=\"Github\" style=\"margin-top:2px\"><i class=\"fa fa-github\" style=\"font-size:27px\"></i></button></a> <a class=\"full-screen-button\"><button type=\"button\" class=\"btn btn-secondary topbarbtn\" data-toggle=\"tooltip\" data-placement=\"bottom\" onclick=\"location.href=\'independent/emailme.html\';\" aria-label=\"Github\" title=\"Email me\" ><i class=\"fa fa-envelope\" style=\"font-size:23px\"></i></button></a>"
+
+replace_html(base, replace,with_)
